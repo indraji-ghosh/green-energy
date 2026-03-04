@@ -1,0 +1,80 @@
+import Image from "next/image";
+import Link from "next/link";
+
+const stats = [
+  { value: "12+", label: "Years Experience" },
+  { value: "140+", label: "Satisfied Clients" },
+];
+
+export default function AboutSection() {
+  return (
+    <section id="about" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Top Intro Text — centered */}
+        <div className="text-center mb-16">
+          <span className="text-sm font-semibold text-green-600 uppercase tracking-widest">
+            About Us
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+            we are cultivating more
+            <br className="hidden sm:block" />
+            than just crops
+          </h2>
+          <p className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-green-600 leading-tight">
+            we are cultivating a cleaner
+            <br className="hidden sm:block" />
+            future. By harnessing solar energy
+          </p>
+        </div>
+
+        {/* Two-column layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left — Image */}
+          <div className="relative rounded-3xl overflow-hidden aspect-4/3 shadow-xl">
+            <Image
+              src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=900&q=80"
+              alt="Solar panels on farm"
+              fill
+              className="object-cover object-center"
+            />
+          </div>
+
+          {/* Right — Stats + Text */}
+          <div className="flex flex-col gap-8">
+            {/* Stats Row */}
+            <div className="flex gap-8 flex-wrap">
+              {stats.map((stat) => (
+                <div key={stat.label} className="flex flex-col">
+                  <span className="text-4xl font-extrabold text-gray-900">
+                    {stat.value}
+                  </span>
+                  <span className="text-sm text-gray-500 mt-1">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Description */}
+            <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
+              By integrating solar energy into our farming practices, we
+              significantly reduce our carbon footprint while cutting down on
+              energy costs. This sustainable approach not only supports the
+              environment but also ensures a reliable and cost-effective energy
+              supply for all farming operations.
+            </p>
+
+            {/* CTA */}
+            <Link
+              href="#services"
+              className="self-start inline-flex items-center gap-2 px-6 py-3 rounded-full bg-green-600 text-white font-semibold text-sm hover:bg-green-700 transition-colors shadow-md"
+            >
+              Read Our Story
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
