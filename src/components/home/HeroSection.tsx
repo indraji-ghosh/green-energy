@@ -33,7 +33,7 @@ export default function HeroSection() {
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-sm backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-           Smart Solar Solutions for a Sustainable Futuree
+          Solar Solutions for a Sustainable Futuree
           </span>
         </motion.div>
 
