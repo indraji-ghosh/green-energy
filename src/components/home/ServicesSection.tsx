@@ -3,38 +3,39 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const services = [
   {
     id: 1,
-    title: "Powering Irrigation with the Sun.",
+    title: "☀️ Residential Solar Installation",
     description:
-      "Use solar energy to power efficient irrigation systems that conserve water and reduce costs.",
+      "We provide customized solar panel installation for homes to help homeowners reduce electricity bills and switch to clean renewable energy. Our systems are designed to maximize efficiency and long-term savings.",
   },
   {
     id: 2,
-    title: "Solar Solutions for Livestock.",
+    title: "🏢 Commercial Solar Solutions",
     description:
-      "Reliable off-grid solar power to support livestock management and welfare.",
+      "Our commercial solar solutions help businesses, offices, and industries reduce operational energy costs. We design large-scale solar systems that deliver reliable performance and long-term financial benefits.",
   },
   {
     id: 3,
-    title: "Solar-Powered Cold Storage.",
+    title: "🔍 Solar Energy Consultation",
     description:
-      "Keep produce fresh longer with solar-powered refrigeration systems that operate independently from the grid.",
+      "Not sure how solar works for your property? Our experts analyze your electricity usage, roof space, and sunlight exposure to recommend the best solar system for your needs.",
     highlight: true,
   },
   {
     id: 4,
-    title: "Solar Electric Fencing.",
+    title: "🛠 Solar System Design",
     description:
-      "Affordable and reliable solar-powered electric fencing to protect your crops and livestock.",
+      "We create optimized solar system layouts that ensure maximum power generation. Our design process considers roof structure, panel placement, and energy requirements to deliver the most efficient setup.",
   },
   {
     id: 5,
-    title: "Agric Solar Fields.",
+    title: "⚡ Professional Installation",
     description:
-      "Dedicated solar field installations designed specifically for agricultural land use.",
+      "Our trained technicians handle the complete installation process safely and efficiently. We ensure every solar system is installed according to industry standards for durability and high performance.",
   },
 ];
 
@@ -64,14 +65,20 @@ export default function ServicesSection() {
     <section id="services" className="bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
           <span className="text-sm font-semibold text-green-600 uppercase tracking-widest">
             About What We Do
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight max-w-xl">
-            Solar Energy in Every Step of Farming
+            Our Solar Services
           </h2>
-        </div>
+        </motion.div>
 
         {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

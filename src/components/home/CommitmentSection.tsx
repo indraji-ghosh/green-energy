@@ -1,12 +1,13 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const benefits = [
   "Reduce Energy Costs",
   "Increase Self-Sufficiency",
   "Environmentally Friendly",
   "Notable in Remote Areas",
-  "Modernize Traditional Farming",
 ];
 
 export default function CommitmentSection() {
@@ -15,7 +16,7 @@ export default function CommitmentSection() {
       <div className="relative h-145 lg:h-160 w-full">
         {/* Background image */}
         <Image
-          src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1920&q=80"
+          src="/hero3.jpeg"
           alt="Wind turbines agricultural field"
           fill
           className="object-cover object-center"
@@ -24,7 +25,13 @@ export default function CommitmentSection() {
 
         {/* White card — right half */}
         <div className="absolute inset-0 flex items-center justify-end px-4 sm:px-8 lg:pr-16">
-          <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10 max-w-lg w-full">
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10 max-w-lg w-full"
+          >
             {/* Tag */}
             <span className="text-xs font-bold text-green-600 uppercase tracking-widest">
               ✦ Benefits
@@ -34,7 +41,7 @@ export default function CommitmentSection() {
             <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-gray-900 leading-snug">
               Our Commitment to
               <br />
-              Solar Farming
+              Our Customer
             </h2>
 
             {/* Benefits list */}
@@ -54,7 +61,7 @@ export default function CommitmentSection() {
               href="#about"
               className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0b1d2e] text-white font-semibold text-sm hover:bg-[#132a3e] transition-colors"
             >
-              Learn More
+             Contact us
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -69,7 +76,7 @@ export default function CommitmentSection() {
                 />
               </svg>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

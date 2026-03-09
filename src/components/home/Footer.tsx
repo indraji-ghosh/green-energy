@@ -68,6 +68,7 @@ export default function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address..."
                 className="flex-1 bg-transparent px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none"
+                suppressHydrationWarning
               />
               <button
                 type="submit"
@@ -84,8 +85,7 @@ export default function Footer() {
           {/* Contact Us */}
           <div className="flex flex-col gap-3">
             <h4 className="text-sm font-bold text-white uppercase tracking-widest mb-1">Contact Us</h4>
-            <p className="text-white/60 text-sm">+353 01 420 4163</p>
-            <p className="text-white/60 text-sm">info@nationalsolarfarm.com</p>
+            <p className="text-white/60 text-sm">+91 6291-767198</p>
           </div>
 
           {/* Location */}

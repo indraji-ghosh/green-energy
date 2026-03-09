@@ -7,6 +7,7 @@ import CommitmentSection from "@/components/home/CommitmentSection";
 import ProjectsSection from "@/components/home/ProjectsSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import Footer from "@/components/home/Footer";
+import WhatsAppButton from "@/components/ui/whatsappButton";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <ProjectsSection />
       <TestimonialsSection />
       <Footer />
+    <WhatsAppButton />
     </main>
   );
 }

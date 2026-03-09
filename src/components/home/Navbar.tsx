@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -14,23 +16,31 @@ const navLinks = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrolled ? "bg-white shadow-md" : "bg-transparent"}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-            <svg
-              viewBox="0 0 24 24"
-              fill="white"
-              className="w-5 h-5"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 10 22 10c0 0-6 3-9 3-3.18 0-5.76-3-5.76-3S9 15 12 15a5 5 0 0 0 5-5V8z" />
-            </svg>
+          <div className="w-20 flex items-center justify-center">
+            <Image
+            src="/logo.png"
+            alt="Neev Green Energy"
+            width={150}
+            height={52}
+            />
           </div>
-          <span className="text-xl font-bold text-gray-900">Ecoray</span>
+          <span className="text-xl font-bold text-gray-900">Neev Green Energy</span>
         </Link>
 
         {/* Desktop Nav Links */}
@@ -49,12 +59,21 @@ export default function Navbar() {
 
         {/* CTA Button */}
         <div className="hidden md:flex items-center gap-3">
-          <Link
-            href="#contact"
-            className="px-5 py-2 rounded-full bg-orange-400 text-white text-sm font-semibold hover:bg-orange-500 transition-colors"
-          >
-            Contact Us
-          </Link>
+         <a
+                href="https://wa.me/1234567890"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-2 px-5 py-2 rounded-full bg-green-500 text-white text-sm font-semibold hover:bg-green-600 transition-colors"
+              >
+              
+              <Image 
+                src="/whatsappLogo.png"
+                alt="WhatsApp"
+                width={30}
+                height={30}
+              />
+                WhatsApp
+              </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -90,14 +109,22 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
+           
             <li>
-              <Link
-                href="#contact"
-                className="inline-block mt-2 px-5 py-2 rounded-full bg-orange-400 text-white text-sm font-semibold hover:bg-orange-500 transition-colors"
-                onClick={() => setMenuOpen(false)}
+              <a
+                href="https://wa.me/1234567890"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-2 px-5 py-2 rounded-full bg-green-500 text-white text-sm font-semibold hover:bg-green-600 transition-colors"
               >
-                Contact Us
-              </Link>
+              <Image 
+                src="/whatsappLogo.png"
+                alt="WhatsApp"
+                width={30}
+                height={30}
+              />
+                WhatsApp
+              </a>
             </li>
           </ul>
         </div>

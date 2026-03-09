@@ -2,16 +2,17 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
     id: 1,
-    name: "James Tan",
-    role: "Teacher",
+    name: "Rajesh Sharma",
+    role: "Durgapur",
     quote:
-      "Partnering with this solar farm was one of the best decisions for our land and our future. Not only did we reduce energy costs but we also became part of a cleaner greener initiative.",
+      "I recently installed solar panels at my home through Neev Green Energy, and the experience was excellent. The team explained everything clearly and completed the installation smoothly. My electricity bills have already started reducing.",
     avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80",
+      "/star.png",
     leftImage:
       "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=700&q=80",
     rightImage:
@@ -19,12 +20,11 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Maria Santos",
+    name: "Ananya Mukherjee",
     role: "Farm Owner",
     quote:
-      "The transition to solar energy was seamless. Our electricity bills dropped by 70% and we now power our entire irrigation system sustainably. I wish we had done this years ago.",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80",
+      "The installation process was very professional and quick. Neev Green Energy helped us understand the benefits of solar and guided us through the entire setup. Our home now runs on clean energy, and we are very happy with the results.",
+    avatar: "/star.png",
     leftImage:
       "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=700&q=80",
     rightImage:
@@ -32,12 +32,12 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "David Okafor",
+    name: "Amit Patel",
     role: "Agricultural Engineer",
     quote:
-      "From installation to ongoing maintenance, the team has been exceptional. Our remote site now has reliable power 24/7 and our livestock operations run more efficiently than ever.",
-    avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&q=80",
+      "We installed a solar system for our factory to reduce electricity costs. The Neev Green Energy team designed the system perfectly according to our power requirements. It has significantly lowered our monthly electricity expenses.",
+    avatar: "/star.png",  
+     
     leftImage:
       "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=700&q=80",
     rightImage:
@@ -49,8 +49,7 @@ const testimonials = [
     role: "Sustainability Director",
     quote:
       "Integrating solar energy into our operations has been a game-changer. We have reduced our carbon footprint significantly and our community looks up to us as a model for green farming.",
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&q=80",
+    avatar: "/star.png",
     leftImage:
       "https://images.unsplash.com/photo-1560493676-04071c5f467b?w=700&q=80",
     rightImage:
@@ -58,43 +57,18 @@ const testimonials = [
   },
   {
     id: 5,
-    name: "Lucas Mendes",
+    name: "Sandeep Verma",
     role: "Crop Farmer",
     quote:
-      "Solar energy has allowed us to expand our cold storage capacity without worrying about power costs. Our produce stays fresher longer and our profits have increased substantially.",
-    avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&q=80",
+      "Neev Green Energy provided great service from consultation to installation. The team was knowledgeable and supportive throughout the process. I would definitely recommend them to anyone planning to switch to solar.",
+    avatar: "/star.png",
+     
     leftImage:
       "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=700&q=80",
     rightImage:
       "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=700&q=80",
   },
-  {
-    id: 6,
-    name: "Chen Wei",
-    role: "Agribusiness Manager",
-    quote:
-      "The ROI has been incredible. Within three years we had fully recovered the installation cost and every year since has been pure savings. Highly recommend to any serious farmer.",
-    avatar:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=120&q=80",
-    leftImage:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=700&q=80",
-    rightImage:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=700&q=80",
-  },
-  {
-    id: 7,
-    name: "Sofia Rossi",
-    role: "Vineyard Owner",
-    quote:
-      "Our vineyard is now fully solar-powered. The environment, our wines, and our balance sheet have all benefited enormously. This is the future of responsible agriculture.",
-    avatar:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&q=80",
-    leftImage:
-      "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=700&q=80",
-    rightImage:
-      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=700&q=80",
-  },
+
 ];
 
 export default function TestimonialsSection() {
@@ -117,16 +91,20 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Heading */}
-        <h2 className="text-center text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="text-center text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
+        >
           Hear From Those Who Power
           <br className="hidden sm:block" /> the Future With Us
-        </h2>
+        </motion.h2>
 
         {/* Sub-description */}
         <p className="mt-5 text-center text-gray-500 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-          Partnering with this solar farm was one of the best decisions for our
-          land and our future. Not only did we reduce energy costs, but we also
-          became part of a cleaner, greener initiative.
+         At Neev Green Energy, customer satisfaction is our top priority. We take pride in delivering reliable solar solutions and professional service. Hear from homeowners and businesses who trust us to power their future with clean energy.
         </p>
 
         {/* Avatar selector row */}
@@ -166,7 +144,13 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Center quote card */}
-          <div className="bg-white rounded-3xl shadow-xl px-8 py-10 flex flex-col justify-between min-h-64 relative">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+            className="bg-white rounded-3xl shadow-xl px-8 py-10 flex flex-col justify-between min-h-64 relative"
+          >
             {/* Opening quote mark */}
             <span className="absolute top-6 left-7 text-6xl leading-none text-gray-200 font-serif select-none">
               &ldquo;
@@ -196,9 +180,7 @@ export default function TestimonialsSection() {
                 <p className="text-gray-400 text-xs">{current.role}</p>
               </div>
             </div>
-          </div>
-
-          {/* Right image */}
+          </motion.div>
           <div className="hidden lg:block relative h-72 rounded-2xl overflow-hidden shadow-lg">
             <Image
               key={`right-${active}`}

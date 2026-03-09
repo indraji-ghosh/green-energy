@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -9,7 +11,7 @@ const projects = [
     description:
       "Planting the seeds of tomorrow's energy through our solar-powered community farming initiatives, creating a sustainable pathway forward.",
     imageUrl:
-      "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80",
+      "/light.jpeg",
     imageAlt: "Solar panels on fields",
     featured: true,
   },
@@ -18,7 +20,7 @@ const projects = [
     year: "2023",
     title: "Sunscape Energy Project",
     imageUrl:
-      "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80",
+      "/home.jpeg",
     imageAlt: "Solar energy installation",
     featured: false,
   },
@@ -27,7 +29,7 @@ const projects = [
     year: "2023",
     title: "The Sunscape Fields",
     imageUrl:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80",
+      "/residential.jpeg",
     imageAlt: "Solar farm fields",
     featured: false,
   },
@@ -36,7 +38,7 @@ const projects = [
     year: "2023",
     title: "Sunroam Survey",
     imageUrl:
-      "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=800&q=80",
+      "/factory.jpeg",
     imageAlt: "Solar survey aerial",
     featured: false,
   },
@@ -45,7 +47,7 @@ const projects = [
     year: "2023",
     title: "Earthward Essay",
     imageUrl:
-      "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&q=80",
+      "/street2.jpeg",
     imageAlt: "Earthward solar project",
     featured: false,
   },
@@ -60,7 +62,13 @@ export default function ProjectsSection() {
     <section id="projects" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
-        <div className="mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
           <span className="text-xs font-bold text-green-600 uppercase tracking-widest">
             ✦ Our Projects
           </span>
@@ -68,19 +76,19 @@ export default function ProjectsSection() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight max-w-xl">
               Discover Our Successful
               <br />
-              Solar Farming Projects.
+              Solar Projects.
             </h2>
             <div className="flex flex-col gap-4 lg:items-end max-w-sm">
-              <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+              {/* <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
                 By adopting solar energy into our farming practices, we
                 significantly reduce our carbon footprint while cutting down on
                 energy costs.
-              </p>
+              </p> */}
               <Link
                 href="#"
                 className="self-start lg:self-end inline-flex items-center gap-2 px-6 py-3 rounded-full bg-green-600 text-white font-semibold text-sm hover:bg-green-700 transition-colors shadow-md"
               >
-                See All Projects
+                Contact us
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -97,14 +105,27 @@ export default function ProjectsSection() {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Project grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1 } },
+          }}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-5"
+        >
           {/* Featured card — spans 1 col, full height on left */}
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+            className="lg:row-span-2"
+          >
           <Link
             href="#"
-            className="group lg:row-span-2 flex flex-col rounded-2xl overflow-hidden bg-gray-50 hover:shadow-xl transition-shadow duration-300"
+            className="group flex flex-col rounded-2xl overflow-hidden bg-gray-50 hover:shadow-xl transition-shadow duration-300 h-full"
           >
             <div className="relative h-64 lg:h-72 w-full overflow-hidden shrink-0">
               <Image
@@ -128,11 +149,15 @@ export default function ProjectsSection() {
               )}
             </div>
           </Link>
+          </motion.div>
 
           {/* Top row — 2 smaller cards */}
           {topRow.map((project) => (
-            <Link
+            <motion.div
               key={project.id}
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+            >
+            <Link
               href="#"
               className="group flex flex-col rounded-2xl overflow-hidden bg-gray-50 hover:shadow-xl transition-shadow duration-300"
             >
@@ -153,12 +178,16 @@ export default function ProjectsSection() {
                 </h3>
               </div>
             </Link>
+            </motion.div>
           ))}
 
           {/* Bottom row — 2 wider cards */}
           {bottomRow.map((project) => (
-            <Link
+            <motion.div
               key={project.id}
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+            >
+            <Link
               href="#"
               className="group flex flex-col rounded-2xl overflow-hidden bg-gray-50 hover:shadow-xl transition-shadow duration-300"
             >
@@ -179,8 +208,9 @@ export default function ProjectsSection() {
                 </h3>
               </div>
             </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

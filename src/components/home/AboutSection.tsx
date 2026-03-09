@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const stats = [
   { value: "12+", label: "Years Experience" },
@@ -11,36 +13,52 @@ export default function AboutSection() {
     <section id="about" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Top Intro Text — centered */}
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <span className="text-sm font-semibold text-green-600 uppercase tracking-widest">
             About Us
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            we are cultivating more
-            <br className="hidden sm:block" />
-            than just crops
+
+
+🌞 Powering the Future
           </h2>
           <p className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-green-600 leading-tight">
-            we are cultivating a cleaner
-            <br className="hidden sm:block" />
-            future. By harnessing solar energy
+           with Clean Solar Energy
           </p>
-        </div>
+        </motion.div>
 
         {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left — Image */}
-          <div className="relative rounded-3xl overflow-hidden aspect-4/3 shadow-xl">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7 }}
+            className="relative rounded-3xl overflow-hidden aspect-4/3 shadow-xl"
+          >
             <Image
-              src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=900&q=80"
+              src="/factory.jpeg"
               alt="Solar panels on farm"
               fill
               className="object-cover object-center"
             />
-          </div>
+          </motion.div>
 
           {/* Right — Stats + Text */}
-          <div className="flex flex-col gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7 }}
+            className="flex flex-col gap-8"
+          >
             {/* Stats Row */}
             <div className="flex gap-8 flex-wrap">
               {stats.map((stat) => (
@@ -55,11 +73,10 @@ export default function AboutSection() {
 
             {/* Description */}
             <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
-              By integrating solar energy into our farming practices, we
-              significantly reduce our carbon footprint while cutting down on
-              energy costs. This sustainable approach not only supports the
-              environment but also ensures a reliable and cost-effective energy
-              supply for all farming operations.
+             At Neev Green Energy, we are dedicated to building a sustainable future by providing reliable and affordable solar energy solutions. Our mission is to help homes and businesses transition to clean, renewable power while reducing electricity costs and environmental impact.
+
+We specialize in solar panel installation, system design, and energy consultation, ensuring every project is tailored to maximize efficiency and long-term performance. With a focus on quality technology and professional service, we aim to make solar energy simple, accessible, and beneficial for everyone.
+
             </p>
 
             {/* CTA */}
@@ -67,12 +84,12 @@ export default function AboutSection() {
               href="#services"
               className="self-start inline-flex items-center gap-2 px-6 py-3 rounded-full bg-green-600 text-white font-semibold text-sm hover:bg-green-700 transition-colors shadow-md"
             >
-              Read Our Story
+             Contact us
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
