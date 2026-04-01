@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "12+", label: "Years Experience" },
+  { value: "12+", label: "Year Experience" },
   { value: "140+", label: "Satisfied Clients" },
 ];
 
