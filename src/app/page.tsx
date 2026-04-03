@@ -1,26 +1,33 @@
-import Navbar from "@/components/home/Navbar";
-import HeroSection from "@/components/home/HeroSection";
-import FeaturesSection from "@/components/home/FeaturesSection";
-import AboutSection from "@/components/home/AboutSection";
-import ServicesSection from "@/components/home/ServicesSection";
-import CommitmentSection from "@/components/home/CommitmentSection";
-import ProjectsSection from "@/components/home/ProjectsSection";
-import TestimonialsSection from "@/components/home/TestimonialsSection";
-import Footer from "@/components/home/Footer";
-import WhatsAppButton from "@/components/ui/whatsappButton";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Hero } from "@/components/sections/Hero";
+import { TrustStats } from "@/components/sections/TrustStats";
+import { Services } from "@/components/sections/Services";
+import { About } from "@/components/sections/About";
+import { Projects } from "@/components/sections/Projects";
+import { Gallery } from "@/components/sections/Gallery";
+import { Benefits } from "@/components/sections/Benefits";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { CTA } from "@/components/sections/CTA";
+import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <>
       <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <CommitmentSection />
-      <ProjectsSection />
-      <TestimonialsSection />
+      <main className="flex min-h-screen flex-col bg-white">
+        <Hero />
+        <TrustStats />
+        <About />
+        <Services />
+        <Benefits />
+        <Projects />
+        <Gallery />
+        <Testimonials />
+        <CTA />
+        <Contact />
+      </main>
       <Footer />
-    <WhatsAppButton />
-    </main>
+    </>
   );
 }

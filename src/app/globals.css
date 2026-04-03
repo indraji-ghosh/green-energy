@@ -2,32 +2,51 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #111827;
-  --green-primary: #22c55e;
-  --green-dark: #16a34a;
-  --navy-dark: #0b1d2e;
-  --navy-medium: #132a3e;
+  --foreground: #0f172a; /* deep navy */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-poppins), sans-serif;
-  --font-mono: monospace;
+  --font-sans: var(--font-inter), sans-serif;
+  --color-primary: #10b981; /* Emerald 500 */
+  --color-primary-dark: #059669; /* Emerald 600 */
+  --color-secondary: #0f172a; /* Deep Navy */
+  --color-accent: #fde047; /* Yellow 300 */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  box-sizing: border-box;
+  font-family: var(--font-inter), sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Custom Utilities for Glass and Backgrounds */
+.glass {
+  @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm;
+}
+
+.glass-dark {
+  @apply bg-slate-900/70 backdrop-blur-md border border-slate-700/50 shadow-md;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-teal-400;
+}
+
+/* Custom styling for scrollbar to feel premium */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
 }

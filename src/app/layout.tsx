@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-
-const poppins = Poppins({
-  variable: "--font-poppins",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
-  title: "Ecoray – Powering the Future of Agriculture",
+  title: "Neev Green Energy - Smart Solar Solutions",
   description:
-    "Sustainable solar energy solutions for modern agriculture. Irrigation, livestock, cold storage, fencing and more.",
+    "Premium solar energy solutions for a sustainable future. Residential, commercial, and consulting services by Neev Green Energy.",
 };
 
 export default function RootLayout({
@@ -22,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.variable} antialiased`}
-      >
+      <body className={`${inter.variable} antialiased bg-white text-slate-900 selection:bg-emerald-500/30`}>
         {children}
       </body>
     </html>
